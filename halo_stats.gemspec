@@ -1,10 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'halo-stats/version'
+require 'halo_stats/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "halo-stats"
+  spec.name          = "halo_stats"
   spec.version       = HaloStats::VERSION
   spec.authors       = ["Kyle Lucas"]
   spec.email         = ["kglucas93@gmail.com"]

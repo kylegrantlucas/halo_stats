@@ -35,7 +35,7 @@ guard :rspec, cmd: "bundle exec rspec" do
   watch(rspec.spec_files)
 
   # Ruby files
-  watch(%r{^lib/halo-stats/(.+)\.rb$}) { |m| puts m; "spec/#{m.last}_spec.rb" }
+  watch(%r{^lib/halo_stats/(.+)\.rb$}) { |m| puts m; "spec/#{m.last}_spec.rb" }
   watch(%r{^lib/(.+)\.rb$}) { |m| "spec/lib/#{m.last}_spec.rb" }
 end
 
@@ -44,7 +44,7 @@ guard 'rake', task: 'build', run_on_all: true, run_on_start: true do
 end
 
 guard 'rake', task: 'install', run_on_all: true, run_on_start: true do
-  watch(%r{^lib/halo-stats/})
+  watch(%r{^lib/halo_stats/})
 end
 
 guard 'yard' do
