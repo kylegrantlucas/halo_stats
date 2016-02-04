@@ -5,7 +5,7 @@ module HaloStats
     
     def initialize(options={})
       title = 'h5'
-      key = options[:api_key] || "0361031b16c54d7bb8657504360409ff"
+      key = options[:api_key]
       metadata_prefix = "/metadata/#{title}/metadata"
       metadata_schemas = { get: {
                             campaign_missions: "#{metadata_prefix}/campaign-missions",

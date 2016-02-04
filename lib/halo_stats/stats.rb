@@ -6,7 +6,7 @@ module HaloStats
 
     def initialize(options={})
       title = 'h5'
-      key = options[:api_key] || "0361031b16c54d7bb8657504360409ff"
+      key = options[:api_key]
       stats_prefix = "/stats/#{title}"
       stats_schemas = { get: {
                           player_matches: "#{stats_prefix}/players/{{gamertag}}/matches",
