@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    halo-stats (0.0.1)
+    halo_stats (1.0.0)
       takeout (~> 0.1.2)
 
 GEM
@@ -46,7 +46,7 @@ GEM
       yard (>= 0.7.0)
     hitimes (1.2.2)
     json (1.8.2)
-    liquid (3.0.2)
+    liquid (3.0.6)
     listen (2.10.0)
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
@@ -94,7 +94,7 @@ GEM
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
     slop (3.6.0)
-    takeout (0.1.2)
+    takeout (0.1.3)
       curb
       liquid
       oj
@@ -119,9 +119,12 @@ DEPENDENCIES
   guard-rake
   guard-rspec (= 4.5.0)
   guard-yard
-  halo-stats!
+  halo_stats!
   rake
   rspec
   sinatra
   terminal-notifier-guard
   webmock
+
+BUNDLED WITH
+   1.10.6
