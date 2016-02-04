@@ -1,6 +1,6 @@
-require 'halo_stats/player.rb'
-require 'halo_stats/stats.rb'
-require 'halo_stats/metadata.rb'
+require 'halo-stats/profile'
+require 'halo-stats/stats'
+require 'halo-stats/metadata'
 
 module HaloStats
 end
