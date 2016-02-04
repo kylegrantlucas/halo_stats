@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["kglucas93@gmail.com"]
   spec.summary       = %q{A stats gem for Halo 5.}
   spec.description   = %q{}
-  spec.homepage      = "http://github.com/kyelgrantlucas/halo_stats"
+  spec.homepage      = "http://github.com/kylegrantlucas/halo_stats"
   spec.license       = "MIT"
   spec.required_ruby_version = '>= 1.9.3'
 
