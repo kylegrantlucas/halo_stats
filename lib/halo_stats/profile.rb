@@ -9,22 +9,21 @@ module HaloStats
       profile_prefix = "/profile/#{title}"
       profile_schemas = { get: {
                             emblem: "#{profile_prefix}/profiles/{{gamertag}}/emblem",
-                            spartan_image: "#{profile_prefix}/profiles/{player}/spartan"
+                            spartan_image: "#{profile_prefix}/profiles/{{gamertag}}/spartan"
                         }
                       }
-      profile_endpoints = {get: profile_schemas[:get].keys}
 
-      self.profile_client = Takeout::Client.new(uri: "www.haloapi.com", endpoints: profile_endpoints, schemas: profile_schemas, headers: {'Ocp-Apim-Subscription-Key' => key}, ssl: true)
+      self.profile_client = Takeout::Client.new(uri: "www.haloapi.com", schemas: profile_schemas, headers: {'Ocp-Apim-Subscription-Key' => key}, ssl: true)
 
       return self
     end
 
     def get_emblem(gamertag, size=nil)
-      return profile_client.get_emblem(gamertag: gamertag, size: size)
+      return profile_client.get_emblem(gamertag: gamertag, size: size).headers[:Location]
     end
 
     def get_spartan_image(gamertag, size=nil, crop=nil)
-      return profile_client.get_emblem(gamertag: gamertag, size: size, crop: crop)
+      return profile_client.get_spartan_image(gamertag: gamertag, size: size, crop: crop).headers[:Location]
     end
   end
 end

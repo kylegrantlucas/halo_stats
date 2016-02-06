@@ -30,31 +30,30 @@ module HaloStats
                             weapons: "#{metadata_prefix}/weapons"
                         }
                       }
-      metadata_endpoints = {get: metadata_schemas[:get].keys}
 
-      self.metadata_client = Takeout::Client.new(uri: "www.haloapi.com", endpoints: metadata_endpoints, schemas: metadata_schemas, headers: {'Ocp-Apim-Subscription-Key' => key}, ssl: true)
+      self.metadata_client = Takeout::Client.new(uri: "www.haloapi.com", schemas: metadata_schemas, headers: {'Ocp-Apim-Subscription-Key' => key}, ssl: true)
 
       return self
     end
 
     def get_map_variants(id)
-      return metadata_client.get_map_variants(id: id)
+      return metadata_client.get_map_variants(id: id).body
     end
 
     def get_game_variants(id)
-      return metadata_client.get_game_variants(id: id)
+      return metadata_client.get_game_variants(id: id).body
     end
 
     def get_requisition_packs(id)
-      return metadata_client.get_requisition_packs(id: id)
+      return metadata_client.get_requisition_packs(id: id).body
     end
 
     def get_requisitions(id)
-      return metadata_client.get_requisitions(id: id)
+      return metadata_client.get_requisitions(id: id).body
     end
 
     def method_missing(meth, *args, &block)
-      return self.metadata_client.send(meth)
+      return self.metadata_client.send(meth).body
     end
   end
 end

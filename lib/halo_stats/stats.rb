@@ -20,47 +20,46 @@ module HaloStats
                           custom_game_service_record: "#{stats_prefix}/servicerecords/custom"
                         }
                       }
-      stats_endpoints = {get: stats_schemas[:get].keys}
 
-      self.stats_client = Takeout::Client.new(uri: "www.haloapi.com", endpoints: stats_endpoints, schemas: stats_schemas, headers: {'Ocp-Apim-Subscription-Key' => key}, ssl: true)
+      self.stats_client = Takeout::Client.new(uri: "www.haloapi.com", schemas: stats_schemas, headers: {'Ocp-Apim-Subscription-Key' => key}, ssl: true)
 
       return self
     end
 
     def get_matches(gamertag)
-      return stats_client.get_player_matches(gamertag: gamertag)
+      return stats_client.get_player_matches(gamertag: gamertag).body
     end
 
     def get_arena_carnage_report(id)
-      return stats_client.get_arena_matches(id: id)
+      return stats_client.get_arena_matches(id: id).body
     end
 
     def get_campaign_carnage_report(id)
-      return stats_client.get_campaign_matches(id: id)
+      return stats_client.get_campaign_matches(id: id).body
     end
 
     def get_warzone_carnage_report(id)
-      return stats_client.get_warzone_matches(id: id)
+      return stats_client.get_warzone_matches(id: id).body
     end
 
     def custom_game_carnage_report(id)
-      return stats_client.get_custom_game_matches(id: id)
+      return stats_client.get_custom_game_matches(id: id).body
     end
 
     def get_arena_service_record(gamertags)
-      return stats_client.get_arena_service_record(players: [gamertags].flatten(1).join(',')) 
+      return stats_client.get_arena_service_record(players: [gamertags].flatten(1).join(',')).body
     end
 
     def get_campaign_service_record(gamertags)
-      return stats_client.get_campaign_service_record(players: [gamertags].flatten(1).join(',')) 
+      return stats_client.get_campaign_service_record(players: [gamertags].flatten(1).join(',')).body
     end
 
     def get_custom_game_service_record(gamertags)
-      return stats_client.get_custom_game_service_record(players: [gamertags].flatten(1).join(',')) 
+      return stats_client.get_custom_game_service_record(players: [gamertags].flatten(1).join(',')).body
     end
 
     def get_warzone_service_record(gamertags)
-      return stats_client.get_warzone_service_record(players: [gamertags].flatten(1).join(',')) 
+      return stats_client.get_warzone_service_record(players: [gamertags].flatten(1).join(',')).body
     end
   end
 end
