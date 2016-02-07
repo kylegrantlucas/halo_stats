@@ -48,9 +48,16 @@ class FakeTestApi < Sinatra::Base
 
   private
 
-  def json_response(response_code, file_name)
+  def json_response(response_code, file_name) 
     content_type :json
-    status response_code
+    
+    if response_code == 302
+      headers :Location => "http://fakeurl" 
+      status 200
+    else
+      status response_code
+    end 
+
     File.open(File.dirname(__FILE__) + '/fixtures/' + file_name, 'rb').read if file_name
   end
 end

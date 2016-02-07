@@ -9,6 +9,7 @@ describe HaloStats::Profile do
     end
 
     it 'returns a string for get_spartan_image' do
+      puts profile_client.get_spartan_image('faketag')
       expect(profile_client.get_spartan_image('faketag')).to be_an(String)
     end
   end
